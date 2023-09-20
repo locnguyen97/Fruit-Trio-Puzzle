@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
     {
         if (levels[currentIndex].gameObjects.Count == 0)
         {
-            levels[currentIndex].gameObject.SetActive(false);
+            //levels[currentIndex].gameObject.SetActive(false);
 
             currentIndex += 1;
 
@@ -49,8 +49,8 @@ public class GameManager : MonoBehaviour
 
     IEnumerator LevelUp()
     {
-        yield return new WaitForSeconds(2);
-
+        yield return new WaitForSeconds(1);
+        levels[currentIndex-1].gameObject.SetActive(false);
         if (currentIndex == 3)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
